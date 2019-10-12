@@ -26,6 +26,10 @@ from termcolor import colored
 from xml.dom.minidom import parseString
 from sic.decrypter import Decrypter
 from sic.entry import Entry
+try:
+    input = raw_input
+except NameError:
+    pass
 
 def matches( query, card ):
     try:
@@ -84,7 +88,6 @@ for node in xml.getElementsByTagName('card'):
         entries.append( Entry(node) )
 
 for entry in entries:
-    print(search)
     if entry.matches(search):
         notes = None
         print( colored( "%s\n" % entry.title, 'green', attrs=['bold'] ))
