@@ -1,3 +1,3 @@
 # pip install termcolor
 # pip install passlib 
-PYTHONPATH=.:$PYTHONPATH python3 bin/sic $1
+PYTHONPATH=.:$PYTHONPATH python bin/sic $1

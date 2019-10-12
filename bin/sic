@@ -91,7 +91,12 @@ for entry in entries:
     if entry.matches(search):
         notes = None
         print( colored( "%s\n" % entry.title, 'green', attrs=['bold'] ))
-        for title, field in entry.fields.items():
+        try:
+            entry_items = entry.fields.iteritems()
+        except AttributeError:
+            entry_items = entry.fields.items()
+
+        for title, field in entry_items:
             if field.type == 'notes':
                 notes = field
             else:
